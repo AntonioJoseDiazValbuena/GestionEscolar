@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GestionEscolar.Datos;
+﻿using System.Collections.Generic;
+using GestionEscolar.Aplicacion.Interfaces;
 using GestionEstudiantes.Modelos;
-using Microsoft.AspNetCore.Http;
+using GestionEstudiantes.Modelos.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestionEscolar.API.Controllers
@@ -13,17 +10,64 @@ namespace GestionEscolar.API.Controllers
     [ApiController]
     public class EstudiantesController : ControllerBase
     {
-        private readonly GestionEscolarContexto _contexto;
+        private readonly IGestionEstudiante _gestionEstudiante;
 
-        public EstudiantesController(GestionEscolarContexto contexto)
+        public EstudiantesController(IGestionEstudiante gestionEstudiante)
         {
-            _contexto = contexto;
+            _gestionEstudiante = gestionEstudiante;
         }
 
         [HttpGet]
-        public ActionResult<Estudiante> ObtenerEstudiantes()
+        public List<Estudiante> ObtenerEstudiantes()
         {
-            return _contexto.Estudiantes.First();
+            return _gestionEstudiante.ObtenerEstudiantes();
+        }
+
+        [HttpGet]
+        [Route("Materias")]
+        public List<Grupo> ObtenerMaterias()
+        {
+            return _gestionEstudiante.ObtenerGrupos();
+        }
+
+        [HttpPost]
+        public void AgregarEstudiante(Estudiante estudiante)
+        {
+            _gestionEstudiante.AgregarEstudiante(estudiante);
+        }
+
+        [HttpPut]
+        [Route("Materias/Calificaciones")]
+        public void ModificarNotasEstudiante(CalificacionesEstudiante calificacionesEstudiante)
+        {
+            _gestionEstudiante.ModificarNotasEstudiante(calificacionesEstudiante);
+        }
+
+        [HttpPut]
+        [Route("Materias")]
+        public void AsignarMateria(MateriaEstudiante materia)
+        {
+            _gestionEstudiante.AsignarMateria(materia);
+        }
+
+        [HttpPut]
+        [Route("Materias/Remover")]
+        public void EliminarMateria(MateriaEstudiante materia)
+        {
+            _gestionEstudiante.EliminarMateria(materia);
+        }
+
+        [HttpPut]
+        public void ModificarNombreEstudiante(Estudiante estudiante)
+        {
+            _gestionEstudiante.ModificarNombreEstudiante(estudiante);
+        }
+
+        [HttpDelete]
+        [Route("{tarjetaIdentificacion}")]
+        public void EliminarEstudiante(string tarjetaIdentificacion)
+        {
+            _gestionEstudiante.EliminarEstudiante(tarjetaIdentificacion);
         }
     }
 }

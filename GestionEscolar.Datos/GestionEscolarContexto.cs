@@ -31,5 +31,10 @@ namespace GestionEscolar.Datos
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public void GuardarCambios()
+        {
+            base.SaveChanges();
+        }
     }
 }

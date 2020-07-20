@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fenix.Excepciones" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestionEscolar.Aplicacion.Interfaces\GestionEscolar.Aplicacion.Interfaces.csproj" />
+    <ProjectReference Include="..\GestionEscolar.Datos.Interfaces\GestionEscolar.Datos.Interfaces.csproj" />
+    <ProjectReference Include="..\GestionEstudiantes.Modelos\GestionEstudiantes.Modelos.csproj" />
+  </ItemGroup>
+
+</Project>

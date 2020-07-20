@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GestionEscolar.Aplicacion;
+using GestionEscolar.Aplicacion.Interfaces;
 using GestionEscolar.Datos;
+using GestionEscolar.Datos.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +34,11 @@ namespace GestionEscolar.API
                 {
                     config.UseSqlServer(Configuration.GetConnectionString("ConexionSQLServer"));
                 });
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddScoped<IGestionEscolarContexto, GestionEscolarContexto>();
+            services.AddScoped<IGestionEstudiante, GestionEstudiante>();
+            services.AddScoped<IGestionProfesor, GestionProfesor>();
+            services.AddScoped<IGestionMateria, GestionMateria>();
 
             services.AddCors();
         }

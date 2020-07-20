@@ -12,5 +12,12 @@ namespace GestionEstudiantes.Modelos
         public ICollection<MateriaEstudiante> MateriasEstudiantes { get; private set; }
         public Materia Materia { get; set; }
         public Profesor Profesor { get; set; }
+
+        public Grupo(string cedulaProfesor, int idMateria)
+        {
+            CedulaProfesor = cedulaProfesor;
+            IdMateria = idMateria;
+            MateriasEstudiantes = new List<MateriaEstudiante>();
+        }
     }
 }

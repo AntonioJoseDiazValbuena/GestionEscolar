@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEscolar.API", "GestionEscolar.API\GestionEscolar.API.csproj", "{9625D049-6D3C-4395-AD4D-396150A139C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionEscolar.API", "GestionEscolar.API\GestionEscolar.API.csproj", "{9625D049-6D3C-4395-AD4D-396150A139C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEstudiantes.Modelos", "GestionEstudiantes.Modelos\GestionEstudiantes.Modelos.csproj", "{040E9202-91AE-40A7-9F75-E101A05625E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionEstudiantes.Modelos", "GestionEstudiantes.Modelos\GestionEstudiantes.Modelos.csproj", "{040E9202-91AE-40A7-9F75-E101A05625E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEscolar.Datos", "GestionEscolar.Datos\GestionEscolar.Datos.csproj", "{B40992C2-D016-4CEF-A6AD-1FAD043C6288}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionEscolar.Datos", "GestionEscolar.Datos\GestionEscolar.Datos.csproj", "{B40992C2-D016-4CEF-A6AD-1FAD043C6288}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEstudiantes.Tests", "GestionEstudiantes.Tests\GestionEstudiantes.Tests.csproj", "{B862FA04-6BF6-4DE8-902E-A886880E136E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionEstudiantes.Tests", "GestionEstudiantes.Tests\GestionEstudiantes.Tests.csproj", "{B862FA04-6BF6-4DE8-902E-A886880E136E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEscolar.Datos.Interfaces", "GestionEscolar.Datos.Interfaces\GestionEscolar.Datos.Interfaces.csproj", "{8B2FDF07-3AFE-491E-B886-4045876431AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionEscolar.Datos.Interfaces", "GestionEscolar.Datos.Interfaces\GestionEscolar.Datos.Interfaces.csproj", "{8B2FDF07-3AFE-491E-B886-4045876431AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEscolar.Aplicacion.Interfaces", "GestionEscolar.Aplicacion.Interfaces\GestionEscolar.Aplicacion.Interfaces.csproj", "{C6A73E82-9080-4885-8B72-73DA17E96BDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionEscolar.Aplicacion", "GestionEscolar.Aplicacion\GestionEscolar.Aplicacion.csproj", "{6338DC36-8E37-4405-BE8D-5F5980EFE897}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{8B2FDF07-3AFE-491E-B886-4045876431AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B2FDF07-3AFE-491E-B886-4045876431AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B2FDF07-3AFE-491E-B886-4045876431AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A73E82-9080-4885-8B72-73DA17E96BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A73E82-9080-4885-8B72-73DA17E96BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A73E82-9080-4885-8B72-73DA17E96BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A73E82-9080-4885-8B72-73DA17E96BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6338DC36-8E37-4405-BE8D-5F5980EFE897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6338DC36-8E37-4405-BE8D-5F5980EFE897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6338DC36-8E37-4405-BE8D-5F5980EFE897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6338DC36-8E37-4405-BE8D-5F5980EFE897}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
