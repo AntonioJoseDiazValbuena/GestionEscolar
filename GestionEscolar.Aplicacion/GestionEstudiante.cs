@@ -29,9 +29,9 @@ namespace GestionEscolar.Aplicacion
 
         public void ModificarNotasEstudiante(CalificacionesEstudiante calificacionesEstudiante)
         {
-            _contexto.ModificarNotasEstudiante(calificacionesEstudiante.tarjetaIdentidad, calificacionesEstudiante.idGrupo,
-                calificacionesEstudiante.calificacionPrimerPeriodo, calificacionesEstudiante.calificacionSegundoPeriodo,
-                calificacionesEstudiante.calificacionTercerPeriodo);
+            _contexto.ModificarNotasEstudiante(calificacionesEstudiante.TarjetaIdentidad, calificacionesEstudiante.IdGrupo,
+                calificacionesEstudiante.CalificacionPrimerPeriodo, calificacionesEstudiante.CalificacionSegundoPeriodo,
+                calificacionesEstudiante.CalificacionTercerPeriodo);
             _contexto.GuardarCambios();
         }
 
