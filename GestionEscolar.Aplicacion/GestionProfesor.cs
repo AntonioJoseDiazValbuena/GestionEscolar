@@ -54,15 +54,15 @@ namespace GestionEscolar.Aplicacion
             _contexto.GuardarCambios();
         }
 
-        public void EliminarGrupo(int idGrupo)
+        public void EliminarGrupo(Grupo grupo)
         {
-            Grupo grupo = _contexto.ObtenerGrupo(idGrupo);
+            Grupo grupoActual = _contexto.ObtenerGrupo(grupo.Id);
 
-            if (_contexto.MateriaTieneEstudiantes(grupo.IdMateria))
+            if (_contexto.MateriaTieneEstudiantes(grupoActual.IdMateria))
                 throw new FenixExceptionConflict(
                     "No puede eliminarle la materia al profesor porque hay estudiantes inscritos");
 
-            _contexto.EliminarGrupo(grupo);
+            _contexto.EliminarGrupo(grupoActual);
             _contexto.GuardarCambios();
         }
     }
