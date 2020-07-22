@@ -19,5 +19,9 @@ namespace GestionEstudiantes.Modelos
             IdMateria = idMateria;
             MateriasEstudiantes = new List<MateriaEstudiante>();
         }
+
+        private Grupo()
+        {
+        }
     }
 }

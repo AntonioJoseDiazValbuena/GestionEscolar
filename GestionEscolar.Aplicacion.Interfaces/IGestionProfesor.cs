@@ -12,6 +12,6 @@ namespace GestionEscolar.Aplicacion.Interfaces
         void ModificarNombreProfesor(Profesor profesor);
         void EliminarProfesor(string cedula);
         void AsignarMateriaAProfesor(Grupo grupo);
-        void EliminarGrupo(Grupo grupo);
+        void EliminarGrupo(int idGrupo);
     }
 }

@@ -97,14 +97,15 @@ namespace GestionEscolar.Datos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Grupos_CedulaProfesor",
-                table: "Grupos",
-                column: "CedulaProfesor");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Grupos_IdMateria",
                 table: "Grupos",
                 column: "IdMateria");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Grupos_CedulaProfesor_IdMateria",
+                table: "Grupos",
+                columns: new[] { "CedulaProfesor", "IdMateria" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_MateriasEstudiantes_TarjetaIdentidadEstudiante",

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionEscolar.Datos.Migrations
 {
     [DbContext(typeof(GestionEscolarContexto))]
-    [Migration("20200719020930_MigracionInicial")]
+    [Migration("20200722152952_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,9 +51,10 @@ namespace GestionEscolar.Datos.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CedulaProfesor");
-
                     b.HasIndex("IdMateria");
+
+                    b.HasIndex("CedulaProfesor", "IdMateria")
+                        .IsUnique();
 
                     b.ToTable("Grupos");
                 });

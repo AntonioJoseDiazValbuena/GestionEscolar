@@ -22,5 +22,9 @@ namespace GestionEstudiantes.Modelos
         {
             Nombre = nombre;
         }
+
+        private Profesor()
+        {
+        }
     }
 }

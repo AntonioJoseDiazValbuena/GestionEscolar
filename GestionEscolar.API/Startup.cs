@@ -36,7 +36,7 @@ namespace GestionEscolar.API
                 {
                     config.UseSqlServer(Configuration.GetConnectionString("ConexionSQLServer"));
                 });
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson(p => p.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddScoped<IGestionEscolarContexto, GestionEscolarContexto>();
             services.AddScoped<IGestionEstudiante, GestionEstudiante>();
             services.AddScoped<IGestionProfesor, GestionProfesor>();

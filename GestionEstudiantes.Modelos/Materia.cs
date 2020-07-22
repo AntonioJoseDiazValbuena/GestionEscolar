@@ -15,5 +15,9 @@ namespace GestionEstudiantes.Modelos
             Nombre = nombre;
             Grupos = new List<Grupo>();
         }
+
+        private Materia()
+        {
+        }
     }
 }

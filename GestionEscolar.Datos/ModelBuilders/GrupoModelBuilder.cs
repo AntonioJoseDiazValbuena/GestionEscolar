@@ -13,6 +13,12 @@ namespace GestionEscolar.Datos.ModelBuilders
         {
             builder.ToTable("Grupos");
             builder.HasKey(entidad => entidad.Id);
+            builder.HasIndex(entidad => new
+            {
+                entidad.CedulaProfesor,
+                entidad.IdMateria
+            })
+                .IsUnique();
             builder.Property(entidad => entidad.CedulaProfesor).HasColumnType("VARCHAR(50)").IsRequired();
             builder.HasOne(entidad => entidad.Profesor)
                 .WithMany(entidad => entidad.Grupos)

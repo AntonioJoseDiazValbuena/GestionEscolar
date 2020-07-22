@@ -54,9 +54,9 @@ namespace GestionEscolar.API.Controllers
 
         [HttpPut]
         [Route("Materias/Remover")]
-        public void EliminarGrupo(Grupo grupo)
+        public void EliminarGrupo([FromBody]int idGrupo)
         {
-            _gestionProfesor.EliminarGrupo(grupo);
+            _gestionProfesor.EliminarGrupo(idGrupo);
         }
     }
 }

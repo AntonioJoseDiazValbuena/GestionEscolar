@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Fenix.Excepciones;
 using GestionEstudiantes.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestionEscolar.Datos
 {
@@ -11,7 +12,10 @@ namespace GestionEscolar.Datos
     {
         public List<Grupo> ObtenerGrupos()
         {
-            return Grupos.OrderBy(entidad => entidad.Materia.Nombre).ToList();
+            return Grupos.Include(entidad => entidad.Profesor)
+                .Include(entidad => entidad.Materia)
+                .Include(entidad => entidad.MateriasEstudiantes)
+                .OrderBy(entidad => entidad.Materia.Nombre).ToList();
         }
 
         public Grupo ObtenerGrupo(int id)

@@ -54,9 +54,9 @@ namespace GestionEscolar.Aplicacion
             _contexto.GuardarCambios();
         }
 
-        public void EliminarGrupo(Grupo grupo)
+        public void EliminarGrupo(int idGrupo)
         {
-            Grupo grupoActual = _contexto.ObtenerGrupo(grupo.Id);
+            Grupo grupoActual = _contexto.ObtenerGrupo(idGrupo);
 
             if (_contexto.MateriaTieneEstudiantes(grupoActual.IdMateria))
                 throw new FenixExceptionConflict(

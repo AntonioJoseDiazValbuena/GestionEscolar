@@ -49,9 +49,10 @@ namespace GestionEscolar.Datos.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CedulaProfesor");
-
                     b.HasIndex("IdMateria");
+
+                    b.HasIndex("CedulaProfesor", "IdMateria")
+                        .IsUnique();
 
                     b.ToTable("Grupos");
                 });

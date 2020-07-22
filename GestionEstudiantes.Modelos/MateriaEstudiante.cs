@@ -16,10 +16,10 @@ namespace GestionEstudiantes.Modelos
         public Estudiante Estudiante { get; set; }
         public Grupo Grupo { get; set; }
 
-        public MateriaEstudiante(int idGrupo, string tarjetaIdentidad)
+        public MateriaEstudiante(int idGrupo, string tarjetaIdentidadEstudiante)
         {
             IdGrupo = idGrupo;
-            TarjetaIdentidadEstudiante = tarjetaIdentidad;
+            TarjetaIdentidadEstudiante = tarjetaIdentidadEstudiante;
         }
 
         public void ModificarNotas(float? calificacionPrimerPeriodo, float? calificacionSegundoPeriodo, float? calificacionTercerPeriodo)
@@ -29,9 +29,8 @@ namespace GestionEstudiantes.Modelos
             CalificacionTercerPeriodo = calificacionTercerPeriodo;
         }
 
-        public MateriaEstudiante()
+        private MateriaEstudiante()
         {
-
         }
     }
 }

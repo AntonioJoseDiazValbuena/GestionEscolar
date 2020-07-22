@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Fenix.Excepciones;
 using GestionEstudiantes.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestionEscolar.Datos
 {
@@ -11,12 +12,24 @@ namespace GestionEscolar.Datos
     {
         public List<Profesor> ObtenerProfesores()
         {
-            return Profesores.OrderBy(entidad => entidad.Nombre).ToList();
+            return Profesores
+                .Include(entidad => entidad.Grupos)
+                .ThenInclude(entidad => entidad.Materia)
+                .Include(entidad => entidad.Grupos)
+                .ThenInclude(entidad => entidad.MateriasEstudiantes)
+                .ThenInclude(entidad => entidad.Estudiante)
+                .OrderBy(entidad => entidad.Nombre).ToList();
         }
 
         public Profesor ObtenerProfesor(string cedula)
         {
-            Profesor profesorActual = Profesores.FirstOrDefault(entidad => entidad.Cedula == cedula);
+            Profesor profesorActual = Profesores
+                .Include(entidad => entidad.Grupos)
+                .ThenInclude(entidad => entidad.Materia)
+                .Include(entidad => entidad.Grupos)
+                .ThenInclude(entidad => entidad.MateriasEstudiantes)
+                .ThenInclude(entidad => entidad.Estudiante)
+                .FirstOrDefault(entidad => entidad.Cedula == cedula);
 
             if (profesorActual is null)
                 throw new FenixExceptionNotFound("Este profesor no se encuentra registrado en la institución");

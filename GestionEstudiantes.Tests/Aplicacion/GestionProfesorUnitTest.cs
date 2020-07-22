@@ -58,15 +58,13 @@ namespace GestionEstudiantes.Tests.Aplicacion
         [TestMethod]
         public void Debe_EliminarGrupo()
         {
-            Grupo grupoAEliminar = _contexto.ObtenerGrupo(3);
-
             List<Grupo> gruposEsperados = new List<Grupo>()
             {
                 new Grupo("1076622840", 1),
                 new Grupo("1076621880", 1)
             };
 
-            _gestionProfesor.EliminarGrupo(grupoAEliminar);
+            _gestionProfesor.EliminarGrupo(3);
 
             List<Grupo> gruposActuales = _contexto.ObtenerGrupos();
 
@@ -80,13 +78,11 @@ namespace GestionEstudiantes.Tests.Aplicacion
         [TestMethod]
         public void Debe_EliminarGrupo_SiMateriaTieneEstudiantesInscritos_ArrojarError()
         {
-            Grupo grupoAEliminar = _contexto.ObtenerGrupo(2);
-
             var mensajeEsperado =
                 "No puede eliminarle la materia al profesor porque hay estudiantes inscritos";
 
             var mensajeActual = Assert.ThrowsException<FenixExceptionConflict>(() =>
-                _gestionProfesor.EliminarGrupo(grupoAEliminar), mensajeEsperado);
+                _gestionProfesor.EliminarGrupo(2), mensajeEsperado);
 
             Assert.AreEqual(mensajeEsperado, mensajeActual.Message);
         }

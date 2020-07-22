@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Fenix.Excepciones;
 using GestionEstudiantes.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestionEscolar.Datos
 {
@@ -11,12 +12,20 @@ namespace GestionEscolar.Datos
     {
         public List<Materia> ObtenerMaterias()
         {
-            return Materias.OrderBy(entidad => entidad.Nombre).ToList();
+            return Materias
+                .Include(entidad => entidad.Grupos)
+                .ThenInclude(entidad => entidad.MateriasEstudiantes)
+                .ThenInclude(entidad => entidad.Estudiante)
+                .OrderBy(entidad => entidad.Nombre).ToList();
         }
 
         public Materia ObtenerMateria(int id)
         {
-            Materia materiaActual = Materias.FirstOrDefault(entidad => entidad.Id == id);
+            Materia materiaActual = Materias
+                .Include(entidad => entidad.Grupos)
+                .ThenInclude(entidad => entidad.MateriasEstudiantes)
+                .ThenInclude(entidad => entidad.Estudiante)
+                .FirstOrDefault(entidad => entidad.Id == id);
 
             if (materiaActual is null)
                 throw new FenixExceptionNotFound("Esta materia no existe");
