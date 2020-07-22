@@ -27,6 +27,8 @@ namespace GestionEscolar.API
 
         public IConfiguration Configuration { get; }
 
+        private readonly string politicas = "permitir_Localhost";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -40,7 +42,16 @@ namespace GestionEscolar.API
             services.AddScoped<IGestionProfesor, GestionProfesor>();
             services.AddScoped<IGestionMateria, GestionMateria>();
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: politicas,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +67,8 @@ namespace GestionEscolar.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(politicas);
 
             app.UseAuthorization();
 
